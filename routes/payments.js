@@ -16,7 +16,6 @@ router.post("/", [ensureUser],
 		const user = await User.getById(res.user.id);
 		// get the payment amount
 		const amount = await calcTotalAmount(req.body.items);
-		console.log("===========================", amount);
 
 		// create the payment intent
 		const paymentIntent = await stripe.paymentIntents.create({

@@ -6,11 +6,10 @@ const calcTotalAmount = async items => {
 	const ids = items.map(i => i.productId);
 	const products = await Product.getByIdSet(ids);
 
-	console.warn(products);
-
 	for (const { productId, quantity } of items) {
-		console.warn(typeof products[productId]);
-		total += (products[productId] * quantity);
+		const price = products[productId];
+		const amount = BigInt(quantity);
+		total += (price * amount);
 	}
 
 	return Number(total);

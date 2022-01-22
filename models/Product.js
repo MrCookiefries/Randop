@@ -131,16 +131,16 @@ class Product {
 		// format ids for IN query
 		const idSet = ids.map(id => `'${id}'`).join(", ");
 		const result = await db.query(
-			`SELECT JSON_AGG(JSON_BUILD_OBJECT(
-				id, price
-			))
+			`SELECT id, price
 			FROM products
-			WHERE id IN ($1)
-			GROUP BY id`,
-			[idSet]
+			GROUP BY id
+			HAVING id IN (${idSet})`
 		);
 
-		return result.rows; // nothing log the query
+		return result.rows.reduce((acc, item) => {
+			acc[item.id] = item.price;
+			return acc;
+		}, {});
 	}
 }
 
