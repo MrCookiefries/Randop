@@ -8,6 +8,7 @@ const handleJsonValidator = require("../helpers/handleJsonValidator");
 const getManySchema = require("../jsonschemas/products/getMany.json");
 const addNewSchema = require("../jsonschemas/products/addNew.json");
 const updateSchema = require("../jsonschemas/products/update.json");
+const filterIdsSchema = require("../jsonschemas/products/filterIds.json");
 const { ensureAdmin, ensureUser } = require("../middleware/auth");
 
 router.get("/", catchErrors(async (req, res) => {
@@ -29,6 +30,12 @@ router.post("/", [ensureUser, ensureAdmin],
 		return res.status(201).json({ product });
 	})
 );
+
+router.post("/getByIds", catchErrors(async (req, res) => {
+	handleJsonValidator(req.body, filterIdsSchema);
+	const products = await Product.filterByIds(req.body.ids);
+	return res.status(201).json({ products });
+}));
 
 router.patch("/:id", [ensureUser, ensureAdmin],
 	catchErrors(async (req, res) => {

@@ -142,6 +142,17 @@ class Product {
 			return acc;
 		}, {});
 	}
+
+	// create a list of products from a set of ids
+	static async filterByIds(ids) {
+		const idSet = ids.map(id => `'${id}'`).join(",");
+		const result = await db.query(
+			`SELECT id, name, image, option1, option2, price
+			FROM products WHERE id IN (${idSet})`
+		);
+
+		return this.addMultiple(result.rows);
+	}
 }
 
 module.exports = Product;
