@@ -21,6 +21,13 @@ router.get("/", [ensureUser, ensureAdmin],
 	})
 );
 
+router.get("/count", [ensureUser, ensureAdmin],
+	catchErrors(async (req, res) => {
+		const { count } = await Order.getCount();
+		return res.status(200).json({ count: count.toString() });
+	})
+);
+
 router.post("/:cartId", [ensureUser],
 	catchErrors(async (req, res) => {
 		const { cartId } = req.params;

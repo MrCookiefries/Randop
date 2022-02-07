@@ -83,6 +83,15 @@ class Order {
 
 		return this.addMultiple(result.rows);
 	}
+
+	// get the total count of orders
+	static async getCount() {
+		const result = await db.query(
+			`SELECT COUNT(id) AS "count" FROM orders`
+		);
+
+		return result.rows[0];
+	}
 }
 
 module.exports = Order;
