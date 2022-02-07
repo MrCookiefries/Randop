@@ -156,6 +156,8 @@ All these actions should be performed from the root directory of the project. Th
 
 - `/orders` gets the orders
 
+- `/orders/count` gets the total count of orders
+
 ##### Post
 
 - `/orders/:cartId` transfers a user's cart over to an order
