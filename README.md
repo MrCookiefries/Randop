@@ -1,5 +1,7 @@
 # Randop
 
+Deployed [here on Heroku][heroku]
+
 An online shop of random goods!
 
 ---
@@ -276,3 +278,4 @@ GitHub [repository][frontend]
 [nodedocs]: https://nodejs.dev/learn/how-to-install-nodejs
 [psqldocs]: https://www.postgresql.org/download/
 [stripe]: https://stripe.com/
+[heroku]: https://randop.herokuapp.com/
