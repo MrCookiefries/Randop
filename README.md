@@ -1,6 +1,6 @@
 # Randop
 
-A shop of random goods
+An online shop of random goods!
 
 ---
 
@@ -104,6 +104,22 @@ All these actions should be performed from the root directory of the project. Th
 
 ## Usage
 
+### Abilities
+
+- Create & log into user accounts
+
+- User authorization for protected routes
+
+- Full CRUD on products
+
+- Create, view & delete carts
+
+- Add, remove, or edit items in a cart
+
+- Create orders from checked out carts
+
+- Create stripe customers & create payment intents
+
 ### Endpoints
 
 #### Auth
@@ -205,6 +221,44 @@ All these actions should be performed from the root directory of the project. Th
 ### Expected data
 
 Many routes require a body of JSON data to be sent in. What's required and expected of them are defined through JSONSChemas, which can be found in the `./jsonschemas` folder for each route that has one. Tests for the routes also show expected inputs & outputs.
+
+## About
+
+### Technology & Tools used
+
+- Node.js (runtime environment for JS)
+
+- Express (JS server framework)
+
+- PG (database driver for PGSQL)
+
+- PostgreSQL (database)
+
+- BCrypt (encryption)
+
+- JSON Schema (validate data)
+
+- JSON Web Token (authentification)
+
+- Stripe (API for payments)
+
+- Jest & Supertest (testing)
+
+### Creation
+
+I started off with a CSV file of product information. It was cluttered with many additional columns of information. The first thing I done was clean it up & format it into a more usable manner. It turned into a seed file for the DB to have some starter data to work with.
+
+After that, I had to setup the express server, so that I could then starting making DB resource models that would query the database. Those models were used in the routes, so that none of the routes would be clutered with DB queries.
+
+Many of the routes had duplicated logic, so I tried to remove most of it by taking out that logic and making it into it's own functiont to re-use. As well as applying some middlewaret to run for every request.
+
+After building out the routes, I begin to work on the authentification & authorization, so that they would be locked down to only certain users that can perform certain actions. With JWT's, it went very smoothly.
+
+As for the testing, there was going to be a lot of files, so as I made them, I also kept the tests up to do date, that way I'd not find myself trying to write all of them at once.
+
+Throughout all of it, I found myself refactoring code over and over again. Consistently finding new and better ways to go about doing a certain action.
+
+While the resource models don't validate any incomming data, the routes are kept clean by validating before passing it to the models. I felt as though, the models should stick to doing one thing, and validating data was not it. That felt more fitting to be implemented on the specific routes. This was accomplished by using JSON Schema, since all the incomming data is expected to be in JSON format.
 
 ## Miscellaneous
 
