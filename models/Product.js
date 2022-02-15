@@ -153,6 +153,14 @@ class Product {
 
 		return this.addMultiple(result.rows);
 	}
+
+	static async getCount() {
+		const result = await db.query(
+			`SELECT COUNT(id) AS "count" FROM products`
+		);
+
+		return result.rows[0];
+	}
 }
 
 module.exports = Product;

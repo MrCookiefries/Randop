@@ -194,6 +194,8 @@ All these actions should be performed from the root directory of the project. Th
 
 - `/products/:id` gets a specific product
 
+- `/products/count` gets the total count of products
+
 ##### Post
 
 - `/products` creates a new product

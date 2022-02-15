@@ -23,6 +23,11 @@ router.get("/:id", catchErrors(async (req, res) => {
 	return res.status(200).json({ product });
 }));
 
+router.get("/count", catchErrors(async (req, res) => {
+	const { count } = await Product.getCount();
+	return res.status(200).json({ count: count.toString() });
+}));
+
 router.post("/", [ensureUser, ensureAdmin],
 	catchErrors(async (req, res) => {
 		handleJsonValidator(req.body, addNewSchema);
