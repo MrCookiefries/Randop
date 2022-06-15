@@ -1,6 +1,8 @@
 # Randop
 
-Deployed [here on Heroku][heroku]
+## Frontend
+
+GitHub [repository][frontend]
 
 An online shop of random goods!
 
@@ -270,14 +272,9 @@ While the resource models don't validate any incomming data, the routes are kept
 
 Idea & proposal [document][propdoc]
 
-### Frontend
-
-GitHub [repository][frontend]
-
 [propdoc]: https://docs.google.com/document/d/1GeBA5F2FUrwJjChO0FZVRbl-ahbvo_mttXK2lCwzmUk/edit?usp=sharing
 [frontend]: https://github.com/MrCookiefries/RandopFrontend
 [clonedocs]: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 [nodedocs]: https://nodejs.dev/learn/how-to-install-nodejs
 [psqldocs]: https://www.postgresql.org/download/
 [stripe]: https://stripe.com/
-[heroku]: https://randop.herokuapp.com/
