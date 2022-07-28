@@ -6,6 +6,10 @@ GitHub [repository][frontend]
 
 An online shop of random goods!
 
+[Visit the deployment][live]
+
+<img src="./imgs/shop.png" alt="Home page of online shop Randop" />
+
 ---
 
 ## Setup
@@ -110,6 +114,8 @@ All these actions should be performed from the root directory of the project. Th
 
 ### Abilities
 
+<img src="./imgs/products.png" alt="List of products for sale" />
+
 - Create & log into user accounts
 
 - User authorization for protected routes
@@ -123,6 +129,8 @@ All these actions should be performed from the root directory of the project. Th
 - Create orders from checked out carts
 
 - Create stripe customers & create payment intents
+
+<img src="./imgs/checkout.png" alt="Cart checkout form" />
 
 ### Endpoints
 
@@ -278,3 +286,4 @@ Idea & proposal [document][propdoc]
 [nodedocs]: https://nodejs.dev/learn/how-to-install-nodejs
 [psqldocs]: https://www.postgresql.org/download/
 [stripe]: https://stripe.com/
+[live]: https://randop.surge.sh/
